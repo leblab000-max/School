@@ -86,3 +86,14 @@
 .resource-grid a{color:var(--lime)}
 .resource-page li+li{margin-top:.6em}
 @media(max-width:650px){.resource-grid{grid-template-columns:1fr}}
+
+.vision-grid,.label-deck{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.vision-grid figure,.label-deck>div{margin:0;border:1px solid #48546c;border-radius:12px;padding:12px;background:#202739}
+.vision-cat{display:grid;grid-template-columns:repeat(12,1fr);aspect-ratio:1;max-width:190px;margin:0 auto 10px;overflow:hidden;border-radius:8px}
+.vision-numbers i{border:1px solid #20334940}
+.vision-numbers .sample{outline:2px solid #fff;outline-offset:-2px}
+.label-icon{display:block;font-size:clamp(24px,7vw,48px);line-height:1.2}
+.label-controls{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.label-controls button{font-size:12px;padding:6px 8px}
+.label-controls button[aria-pressed=true]{border-color:var(--lime);color:var(--lime)}
+#games-quiz{margin-top:12px}
