@@ -79,3 +79,10 @@
 #adventure-editor-status:empty{display:none}
 #adventure-share-panel{margin-top:14px;padding-top:8px;border-top:1px solid #58668a}
 @media(max-width:530px){.adventure-room-list{grid-template-columns:1fr}}
+
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.resource-grid .lab-panel{margin:0}
+.resource-grid h3{margin-top:0}
+.resource-grid a{color:var(--lime)}
+.resource-page li+li{margin-top:.6em}
+@media(max-width:650px){.resource-grid{grid-template-columns:1fr}}

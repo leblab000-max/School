@@ -1,0 +1,74 @@
+.arc-hub,.arc-game{max-width:920px;margin:0 auto 28px;color:#f3f7ff}
+.arc-game{--arc-ink:#142e3b;--arc-accent:#a9f1ba}
+.arc-game h1,.arc-hub h1{font-size:clamp(30px,6vw,50px);margin:.18em 0 .35em;letter-spacing:-.045em}
+.arc-game>p,.arc-hub>p{margin:9px 0;color:#d0dbe9}
+.arc-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.arc-card{display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:0 0 15px;border:1px solid #465c77;border-radius:15px;color:#f5f8ff;text-decoration:none;background:#202b3c;overflow:hidden}
+.arc-card:hover{border-color:#91e6c0;background:#293750}
+.arc-card b,.arc-card>span:not(.arc-card-art){margin-inline:14px}
+.arc-card>span:not(.arc-card-art){color:#c6d4e3;font-size:14px}
+.arc-card-art{display:grid;place-items:center;min-height:112px;width:100%;font-size:48px;color:#fff2ca;background:linear-gradient(145deg,#31526e,#17293d)}
+.arc-card-art.bridge{background:linear-gradient(155deg,#194a4c,#232e44)}
+.arc-card-art.sort{background:linear-gradient(155deg,#4a3a6e,#22273e)}
+.arc-bridge-meta{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center;padding:8px 11px;border:1px solid #465b73;background:#202e42;border-radius:9px;font-size:14px}
+.arc-bridge-meta span{color:#b6f1c7;font-weight:700}
+.arc-ravine{position:relative;height:clamp(172px,28vw,276px);isolation:isolate;overflow:hidden;border-radius:13px;border:1px solid #4e7d81;background:linear-gradient(170deg,#b1e3d1,#75b2af 53%,#6da3a4 54%)}
+.arc-mountains{position:absolute;inset:8% 0 29%;background:linear-gradient(#598782,#305e5b);clip-path:polygon(0 75%,12% 40%,22% 62%,38% 13%,48% 59%,55% 37%,62% 51%,75% 4%,100% 70%,100% 100%,0 100%)}
+.arc-river{position:absolute;inset:63% 0 0;background:repeating-linear-gradient(170deg,#3f8c91 0 9px,#69b5ad 10px 12px,#3f8c91 13px 21px);transform:skewY(-2deg)}
+.arc-bank{position:absolute;top:49%;height:60%;width:15%;border-top:7px solid #99ca88;background:repeating-linear-gradient(155deg,#435347 0 10px,#354b46 10px 20px)}
+.arc-bank.left{left:0;clip-path:polygon(0 0,100% 0,62% 100%,0 100%)}
+.arc-bank.right{right:0;clip-path:polygon(0 0,100% 0,100% 100%,38% 100%)}
+.arc-span{position:absolute;top:49%;left:15%;right:15%;display:grid;grid-template-columns:repeat(var(--sections),minmax(0,1fr));gap:3px}
+.arc-slot,.arc-material{--piece:#985f38;--shine:#ffc486;background:repeating-linear-gradient(145deg,var(--piece) 0 9px,var(--shine) 10px 11px,var(--piece) 12px 19px)}
+.arc-slot{position:relative;height:44px;padding:1px;color:white;border:2px solid #edf6dc;border-radius:4px;cursor:pointer;isolation:isolate;line-height:1}
+.arc-slot small,.arc-slot b{display:block;text-shadow:0 1px 3px #000,0 0 3px #000}
+.arc-slot small{margin-top:3px;font-size:11px}
+.arc-slot.empty{background:#163e4788;border:2px dashed #dcfff0}
+.arc-slot.supported::after{content:"";position:absolute;z-index:-1;top:100%;left:31%;width:38%;height:52px;background:repeating-linear-gradient(145deg,#1a384b 0 8px,#6fa3ab 9px 11px,#1a384b 12px 16px);border:1px solid #b3dad5}
+.arc-slot.cracked{border-color:#ffbab0;box-shadow:inset 0 0 0 2px #982b38,0 0 0 1px #982b38}
+.arc-slot.alloy,.arc-material.alloy{--piece:#2c6566;--shine:#a2d9cd}
+.arc-slot.carbon,.arc-material.carbon{--piece:#514689;--shine:#c4a5ef}
+.arc-slot.steel,.arc-material.steel{--piece:#455673;--shine:#becce6}
+.arc-material.support{--piece:#345568;--shine:#8db2c6}
+.arc-material{display:block;height:12px;width:30px;border:1px solid #d5e6ee;border-radius:3px;margin-bottom:4px}
+.arc-traveller{position:absolute;top:49%;left:3%;width:clamp(20px,6vw,37px);aspect-ratio:1;transform:translate(-50%,-98%);background:#f6d477;border:2px solid #25474b;border-radius:30% 30% 18% 18%;box-shadow:inset 0 -5px #af752d;transition:left 210ms linear;z-index:2}
+.arc-traveller i{position:absolute;inset:24% 12% 36%;border-radius:5px;background:radial-gradient(circle at 30% 50%,#b7ffc0 0 11%,transparent 15%),radial-gradient(circle at 72% 50%,#b7ffc0 0 11%,transparent 15%),#223d4b}
+.arc-palette{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.arc-palette button,.arc-bins button{display:flex;flex-direction:column;align-items:flex-start;min-height:53px;min-width:0;gap:3px;padding:6px 8px;background:#243348;color:#f1f9ff;border:1px solid #4f6485;border-radius:8px;cursor:pointer}
+.arc-palette button[aria-pressed=true]{border-color:#9bf6d0;background:#28534d;box-shadow:inset 0 0 0 1px #9bf6d0}
+.arc-palette small,.arc-bins small{color:#c0d2e8;font-size:11px}
+.arc-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.arc-game [hidden]{display:none}
+.arc-game p.arc-status{min-height:3em;padding:7px 10px;margin:7px 0;border-left:3px solid #83d9ad;background:#202e42;border-radius:5px;font-size:14px}
+.arc-machine{margin-top:9px;border:1px solid #6574a0;border-radius:13px;background:#20283b;padding:10px 8px 7px}
+.arc-belt{position:relative;height:clamp(88px,18vw,137px);overflow:hidden;border-radius:6px;border-block:7px solid #627093;background:repeating-linear-gradient(110deg,#303d56 0 22px,#3c4c66 23px 26px,#303d56 27px 43px)}
+.arc-endline{position:absolute;inset:0 0 0 auto;width:8%;background:repeating-linear-gradient(135deg,#b5823d80 0 8px,#393b4c70 9px 16px)}
+.arc-item{--part:#76eddd;position:absolute;display:grid;place-items:center;top:50%;left:6%;transform:translate(-50%,-50%);width:clamp(32px,9vw,60px);aspect-ratio:1;background:#152537;border:2px solid var(--part);color:var(--part);border-radius:15%;font-size:clamp(22px,6vw,42px);line-height:1;box-shadow:0 0 12px var(--part)}
+.arc-item.purple{--part:#dcb3ff}.arc-item.gold{--part:#ffe69f}
+.arc-time{height:6px;background:#101929;border-radius:9px;margin-top:6px;overflow:hidden}
+.arc-time i{display:block;height:100%;background:linear-gradient(90deg,#a8f4b3,#ffd398);transform-origin:left}
+.arc-guess{font-size:14px}
+.arc-bins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.arc-bins button{align-items:center;min-height:69px;text-align:center;font-weight:700;font-size:clamp(11px,3.3vw,16px)}
+.arc-bins b{font-size:21px;line-height:1}
+.arc-bins button:disabled{opacity:.63;cursor:default}
+.arc-bins button:enabled:active{background:#405d77}
+@media(max-width:560px){.arc-links{grid-template-columns:1fr}.arc-card-art{min-height:72px}.arc-actions button{font-size:13px}.arc-game .arc-palette b{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.arc-traveller{transition:none}}
+.arc-top-link{color:inherit;text-decoration:none;font-weight:700;white-space:nowrap;align-self:center;padding:4px 6px}
+.arc-top-link:hover{text-decoration:underline}
+@media(max-width:380px){.arc-top-link{font-size:10px;padding-inline:1px}.top:has(.arc-top-link){gap:4px}.top nav:has(.arc-top-link){gap:6px}}
+.arc-bins button[data-result=right]{opacity:1;background:#235844;border-color:#91e9b8}
+.arc-bins button[data-result=wrong]{opacity:1;background:#64384c;border-color:#ffafc0}
+.arc-traveller{width:clamp(32px,9vw,65px);aspect-ratio:1.55;transform:translate(-50%,-104%);border-radius:45% 26% 15% 15%;background:#f6b458}
+.arc-traveller span::before,.arc-traveller span::after{content:"";position:absolute;bottom:-15%;width:25%;aspect-ratio:1;border-radius:50%;background:#253748;border:2px solid #e6dbae}
+.arc-traveller span::before{left:9%}.arc-traveller span::after{right:9%}
+.arc-traveller i{inset:10% 26% 38% 20%;border:2px solid #38576b}
+.arc-ravine.collapsed .arc-slot:not(.empty),.arc-ravine.collapsed .arc-slot.supported{animation:bridge-fall 720ms cubic-bezier(.45,.08,.85,.7) var(--fall-delay) both}
+.arc-ravine.collapsed .arc-traveller{animation:car-fall 780ms cubic-bezier(.45,.08,.85,.7) 100ms both}
+@keyframes bridge-fall{to{transform:translateY(155px) rotate(var(--tilt));opacity:.12}}
+@keyframes car-fall{from{transform:translate(-50%,-104%)}to{transform:translate(50%,200px) rotate(70deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.arc-ravine.collapsed .arc-slot,.arc-ravine.collapsed .arc-traveller{animation-duration:1ms;animation-delay:0ms}}
+#bridge-rating{color:#ffe094;font-weight:700;font-size:14px}
+.arc-item.pink{--part:#ff9ebf}.arc-item.lime{--part:#c3f187}
+.arc-bins{grid-template-columns:repeat(auto-fit,minmax(90px,1fr))}
