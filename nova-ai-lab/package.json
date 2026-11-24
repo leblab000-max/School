@@ -1,1 +1,1 @@
-{"name":"ai-school","version":"0.1.0","private":true,"type":"module","scripts":{"test":"node --test","build:grade6":"node build-grade6.mjs"}}
+{"name":"ai-school","version":"0.1.0","private":true,"type":"module","scripts":{"test":"node --test","build:grade6":"node build-grade6.mjs"},"dependencies":{"@tensorflow/tfjs":"4.22.0","blockly":"13.4.0"}}

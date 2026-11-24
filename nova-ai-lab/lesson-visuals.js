@@ -1,3 +1,4 @@
+import { loadScript } from './browser-libraries.js';
 const pixels = [
   '............',
   '..O......O..',
@@ -29,8 +30,11 @@ const cards = [
   { icon:'🍐', name:'Зелёная груша', shape:'pear', color:'green' },
 ];
 
-export function classifyCard(examples, labels, item) {
-  const distances = examples.map(example=>Number(example.shape!==item.shape)*2+Number(example.color!==item.color));
+export function classifyCard(examples, labels, item, tf) {
+  const differences = examples.map(example=>[Number(example.shape!==item.shape),Number(example.color!==item.color)]);
+  const distances = tf
+    ? tf.tidy(()=>Array.from(tf.tensor2d(differences).mul(tf.tensor1d([2,1])).sum(1).dataSync()))
+    : differences.map(([shape,color])=>shape*2+color);
   const best=Math.min(...distances);
   const guesses=labels.filter((_,i)=>distances[i]===best);
   return guesses.length && guesses.every(guess=>guess===guesses[0]) ? guesses[0] : null;
@@ -63,7 +67,7 @@ export function mountLabelLesson(root, complete) {
       root.querySelectorAll(`[data-label-card="${i}"]`).forEach(choice=>choice.setAttribute('aria-pressed',String(choice===button)));
       root.querySelector('#label-feedback').textContent='';
     });
-    next.onclick=()=>{
+    next.onclick=async()=>{
       const feedback=root.querySelector('#label-feedback');
       if(stage===1) {
         const wrong=expected.findIndex((value,i)=>value!==labels[i]);
@@ -73,11 +77,22 @@ export function mountLabelLesson(root, complete) {
         }
       }
       if(stage===2) {
+        next.disabled=true;
+        feedback.textContent='Считаем сходство с примерами…';
+        let tf;
+        try {
+          await loadScript('./vendor/tfjs/tf.min.js');
+          await globalThis.tf.setBackend('cpu');
+          await globalThis.tf.ready();
+          tf=globalThis.tf;
+        } catch { /* The same weighted comparison can run without TensorFlow.js. */ }
+        if(!root.isConnected)return;
         const verdict = item => {
-          const guess=classifyCard(cards,labels,item);
+          const guess=classifyCard(cards,labels,item,tf);
           return guess===null?'не уверен':guess?'яблоко':'не яблоко';
         };
-        feedback.textContent=`Яблоко с жёлтым боком → ${verdict({shape:'round',color:'yellow'})}. Красный шарф → ${verdict({shape:'long',color:'red'})}. Одинаковый цвет не всегда означает одинаковый предмет.`;
+        feedback.textContent=`Яблоко с жёлтым боком → ${verdict({shape:'round',color:'yellow'})}. Красный шарф → ${verdict({shape:'long',color:'red'})}. Одинаковый цвет не всегда означает одинаковый предмет. ${tf?"Сходство посчитал TensorFlow.js.":"Сходство посчитано встроенным способом."}`;
+        next.disabled=false;
         next.textContent='Завершить миссию';
         next.onclick=complete;
         return;

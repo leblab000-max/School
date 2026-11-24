@@ -1,5 +1,11 @@
 import {cp,mkdir,rm} from 'node:fs/promises';
 await rm('dist',{recursive:true,force:true});
 await mkdir('dist');
-for(const file of ['grade6-next.html','grade6-next.js','grade6-next.css','lab-content.js','robot-engine.js','robot-game.js','quiz-studio.js','adventure.js','adventure-field.js','adventure-field.css','quiz-guidance.js','arcade.js','arcade.css','practice.js','resources.js','lesson-visuals.js'])await cp(file,`dist/${file}`);
+for(const file of ['grade6-next.html','grade6-next.js','grade6-next.css','lab-content.js','robot-engine.js','robot-game.js','quiz-studio.js','adventure.js','adventure-field.js','adventure-field.css','quiz-guidance.js','arcade.js','arcade.css','practice.js','resources.js','lesson-visuals.js','browser-libraries.js','cat-blocks.js','practice-game.js','quest-scenes.js'])await cp(file,`dist/${file}`);
 await cp('grade6-next.html','dist/index.html');
+await mkdir('dist/vendor/blockly',{recursive:true});
+await mkdir('dist/vendor/tfjs',{recursive:true});
+for(const file of ['blockly.min.js','LICENSE','media']) await cp(`node_modules/blockly/${file}`,`dist/vendor/blockly/${file}`,{recursive:true});
+await cp('node_modules/blockly/msg/ru.js','dist/vendor/blockly/ru.js');
+await cp('node_modules/@tensorflow/tfjs/dist/tf.min.js','dist/vendor/tfjs/tf.min.js');
+await cp('third-party/tfjs-LICENSE.txt','dist/vendor/tfjs/LICENSE');
